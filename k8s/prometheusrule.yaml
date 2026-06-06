@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: devops-demo-app-alerts
+  namespace: monitoring
+  labels:
+    # This label MUST match your Helm release name
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: devops-demo-app.rules
+      rules:
+        - alert: HighPodRestartRate
+          # Fire when restarts exceed 3 in a 5-minute window
+          expr: increase(kube_pod_container_status_restarts_total{namespace="default", container="devops-demo-app"}[5m]) > 3
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $labels.pod }} is restarting frequently"
+            description: "Pod {{ $labels.pod }} in namespace {{ $labels.namespace }} has restarted more than 3 times in the last 5 minutes."
