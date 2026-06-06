@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: devops-demo-app
-          image: exterimes/devops-demo-app:e049380
+          image: exterimes/devops-demo-app:4c1899a
           ports:
             - containerPort: 5000
           resources:
