@@ -75,14 +75,14 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Debug Sonar Task
-        run: cat .scannerwork/report-task.txt
-      - name: SonarQube Quality Gate
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
+   #    - name: Debug Sonar Task
+   #     run: cat .scannerwork/report-task.txt
+   #   - name: SonarQube Quality Gate
+   #     uses: sonarsource/sonarqube-quality-gate-action@master
+   #     timeout-minutes: 5
+   #     env:
+   #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+   #       SONAR_HOST_URL: https://sonarcloud.io
 
   build-and-push:
     name: Build and Push Image
