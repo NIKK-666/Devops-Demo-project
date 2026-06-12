@@ -56,3 +56,5 @@ Continuous deployment bypasses traditional push-based mechanisms. ArgoCD follows
 2. **Install GitOps Operator:** Deploy ArgoCD via Helm or official manifests into an `argocd` namespace.
 3. **Deploy Observability Stack:** Use Helm v3 to install the `kube-prometheus-stack` to provision Prometheus and Grafana instances.
 4. **Configure Argo Application:** Apply your custom ArgoCD application manifest pointing to your infrastructure path to initialize tracking and deployment automation.
+
+<img width="959" height="467" alt="image" src="https://github.com/user-attachments/assets/6f886a9a-9bab-4e14-be00-b360b31e1bdc" />
